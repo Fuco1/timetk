@@ -90,7 +90,7 @@ tk_xts_.data.frame <- function(data, select = NULL, date_var = NULL, silent = FA
 
     # Implement select
     if (!(select == "NULL" || is.null(select))) {
-        ret <- dplyr::select_(data, select)
+        ret <- dplyr::select(data, {{select}})
     } else {
         ret <- data
     }
@@ -224,5 +224,3 @@ tk_xts_.default <- function(data, select = NULL, date_var = NULL, silent = FALSE
     ret <- xts::xts(data, ...)
     return(ret)
 }
-
-
